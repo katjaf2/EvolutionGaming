@@ -16,8 +16,10 @@ public class SearchResultPage extends Page {
 
     // sort by price
     public void sortByPrice() {
-        wait.until(elementToBeClickable(By.cssSelector("tr#head_line a")));
-
+        wait.until(elementToBeClickable(By.xpath("//tr[@id='head_line']/td[2]//a")));
+        driver.findElement(By.xpath("//tr[@id='head_line']/td[2]//a")).click();
+        
+        /*
         for (Iterator<WebElement> i = driver.findElements(By.cssSelector("tr#head_line a")).iterator(); i.hasNext();) {
             WebElement item = i.next();
             if( item.getText() == "Цена" ){
@@ -25,6 +27,7 @@ public class SearchResultPage extends Page {
                 break;
             }
         }
+        */
     }
 
     // deal types for selectDealType
